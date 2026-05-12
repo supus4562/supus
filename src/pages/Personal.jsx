@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import tasksData from '../content/data/tasks.json';
 import BrutalBox from '../components/BrutalBox';
@@ -32,44 +34,79 @@ const punchIn = (delay = 0) => ({
 /* ─── NAVBAR ─── */
 function Nav() {
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navItem = (text, i) => (
+    <a key={text} href={`#${text.toLowerCase()}`}
+      style={{
+        padding: '0 clamp(1rem, 3vw, 2rem)', borderLeft: i === 0 ? 'none' : T.borderThin,
+        display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%',
+        fontFamily: T.fontBody, fontWeight: 700, fontSize: '1.2rem', color: T.black,
+        textTransform: 'uppercase', textDecoration: 'none', background: T.bgSecondary,
+        transition: 'background 0.2s, color 0.2s'
+      }}
+      onClick={() => setIsOpen(false)}
+      onMouseEnter={e => { e.target.style.background = T.black; e.target.style.color = T.bgSecondary; }}
+      onMouseLeave={e => { e.target.style.background = T.bgSecondary; e.target.style.color = T.black; }}
+    >
+      {text}
+    </a>
+  );
+
   return (
-    <nav style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      display: 'flex', alignItems: 'stretch', justifyContent: 'space-between',
-      background: T.bgSecondary, borderBottom: T.border,
-      height: '80px',
-      overflowX: 'auto', whiteSpace: 'nowrap', msOverflowStyle: 'none', scrollbarWidth: 'none'
-    }}>
-      <style>{`nav::-webkit-scrollbar { display: none; }`}</style>
-      <div 
-        onClick={() => navigate('/')}
-        style={{
-          borderRight: T.border, padding: '0 clamp(1rem, 3vw, 2rem)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          background: T.accent1, color: '#fff', cursor: 'pointer',
-          fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1rem, 3vw, 2rem)', textTransform: 'uppercase'
-        }}
-      >
-        ← SUPUS
-      </div>
-      <div style={{ display: 'flex' }}>
-        {['Life', 'Hobbies', 'Thoughts', 'Gallery'].map((item, i) => (
-          <a key={item} href={`#${item.toLowerCase()}`}
-            style={{
-              padding: '0 clamp(0.5rem, 2vw, 2rem)', borderLeft: i === 0 ? 'none' : T.borderThin,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: T.fontBody, fontWeight: 700, fontSize: '1rem', color: T.black,
-              textTransform: 'uppercase', textDecoration: 'none', background: T.bgSecondary,
-              transition: 'background 0.2s, color 0.2s'
-            }}
-            onMouseEnter={e => { e.target.style.background = T.black; e.target.style.color = T.bgSecondary; }}
-            onMouseLeave={e => { e.target.style.background = T.bgSecondary; e.target.style.color = T.black; }}
-          >
-            {item}
-          </a>
-        ))}
-      </div>
-    </nav>
+    <>
+      <nav style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+        display: 'flex', alignItems: 'stretch', justifyContent: 'space-between',
+        background: T.bgSecondary, borderBottom: T.border, height: '80px',
+      }}>
+        <style>{`
+          .desktop-nav { display: flex; height: 100%; }
+          .mobile-menu-btn { display: none; }
+          .mobile-dropdown { display: none; }
+          @media (max-width: 800px) {
+            .desktop-nav { display: none !important; }
+            .mobile-menu-btn { display: flex !important; }
+            .mobile-dropdown { display: flex; flex-direction: column; position: fixed; top: 80px; left: 0; right: 0; background: ${T.bgSecondary}; border-bottom: 4px solid #000; }
+            .mobile-dropdown > a { border-bottom: 2px solid #000; border-left: none !important; padding: 1.5rem !important; }
+            .mobile-dropdown > a:last-child { border-bottom: none; }
+          }
+        `}</style>
+        
+        <div 
+          onClick={() => navigate('/')}
+          style={{
+            borderRight: T.border, padding: '0 clamp(1rem, 3vw, 2rem)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: T.accent1, color: '#fff', cursor: 'pointer', height: '100%',
+            fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1rem, 3vw, 2rem)', textTransform: 'uppercase'
+          }}
+        >
+          ← SUPUS
+        </div>
+
+        <div className="desktop-nav">
+          {['Life', 'Hobbies', 'Thoughts', 'Gallery'].map((item, i) => navItem(item, i))}
+        </div>
+
+        <div 
+          className="mobile-menu-btn" 
+          onClick={() => setIsOpen(!isOpen)}
+          style={{
+            padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: T.black, cursor: 'pointer', height: '100%', borderLeft: T.border
+          }}
+        >
+          {isOpen ? <X size={32} /> : <Menu size={32} />}
+        </div>
+      </nav>
+
+      {isOpen && (
+        <div className="mobile-dropdown" style={{ zIndex: 99 }}>
+          {['Life', 'Hobbies', 'Thoughts', 'Gallery'].map((item, i) => navItem(item, i))}
+        </div>
+      )}
+    </>
   );
 }
 
@@ -94,7 +131,7 @@ function Hero() {
             fontFamily: T.fontDisplay, fontWeight: 800,
             fontSize: 'clamp(2.5rem, 10vw, 12rem)',
             lineHeight: 1, textTransform: 'uppercase',
-            letterSpacing: '-0.05em', margin: 0,
+            letterSpacing: '0em', margin: 0,
             textShadow: T.shadow
           }}
         >
@@ -106,7 +143,7 @@ function Hero() {
             fontFamily: T.fontDisplay, fontWeight: 800,
             fontSize: 'clamp(2rem, 8vw, 8rem)',
             lineHeight: 1, textTransform: 'uppercase',
-            letterSpacing: '-0.05em', margin: 0, color: T.accent2,
+            letterSpacing: '0em', margin: '0.2em 0 0', color: T.accent2,
             WebkitTextStroke: '3px black'
           }}
         >
@@ -284,6 +321,7 @@ export default function Personal() {
       <Helmet>
         <title>Personal | SUPUS</title>
         <meta name="description" content="Thoughts, hobbies, and the raw archive." />
+        <meta name="keywords" content="Hamza Hassan, Supus, Personal Website, Hobbies, Archive, Neo-Brutalism" />
       </Helmet>
       <Nav />
       <Hero />

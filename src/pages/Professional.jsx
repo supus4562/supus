@@ -83,7 +83,7 @@ export default function Professional() {
               fontFamily: T.fontDisplay, fontWeight: 800,
               fontSize: 'clamp(2rem, 10vw, 12rem)',
               lineHeight: 1, textTransform: 'uppercase',
-              letterSpacing: '-0.05em', margin: 0, color: T.black,
+              letterSpacing: '0em', margin: 0, color: T.black,
               textShadow: T.shadowAccent
             }}
           >
@@ -95,7 +95,7 @@ export default function Professional() {
               fontFamily: T.fontDisplay, fontWeight: 800,
               fontSize: 'clamp(2rem, 10vw, 12rem)',
               lineHeight: 1, textTransform: 'uppercase',
-              letterSpacing: '-0.05em', margin: '0.2em 0 0', color: T.bgSecondary,
+              letterSpacing: '0em', margin: '0.3em 0 0', color: T.bgSecondary,
               WebkitTextStroke: '4px black'
             }}
           >
@@ -325,6 +325,7 @@ export default function Professional() {
       <Helmet>
         <title>Professional | SUPUS</title>
         <meta name="description" content="Systems, Hardware, Math. The professional portfolio." />
+        <meta name="keywords" content="Hamza Hassan, Supus, Software Engineer, LUMS, Systems Programmer, Full Stack, Neo-Brutalism" />
       </Helmet>
       <ProNav />
       <Hero />
