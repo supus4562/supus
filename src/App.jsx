@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import Landing from './pages/Landing';
 import Personal from './pages/Personal';
 import Professional from './pages/Professional';
@@ -43,6 +44,9 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <AnimatedRoutes />
+    <>
+      <AnimatedRoutes />
+      <Analytics />
+    </>
   );
 }
