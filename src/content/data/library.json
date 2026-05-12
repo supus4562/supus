@@ -1,0 +1,30 @@
+[
+  {
+    "type": "course",
+    "semester": "Fall 2025",
+    "title": "CS 100: Computational Problem Solving",
+    "grade": "A+"
+  },
+  {
+    "type": "course",
+    "semester": "Fall 2025",
+    "title": "MATH 101: Calculus I",
+    "grade": "A"
+  },
+  {
+    "type": "course",
+    "semester": "Spring 2026",
+    "title": "CS 200: Data Structures",
+    "grade": "In Progress"
+  },
+  {
+    "type": "book",
+    "title": "Introduction to Algorithms (CLRS)",
+    "author": "Cormen, Leiserson, Rivest, Stein"
+  },
+  {
+    "type": "book",
+    "title": "Linear Algebra Done Right",
+    "author": "Sheldon Axler"
+  }
+]

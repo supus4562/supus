@@ -1,0 +1,18 @@
+[
+  { "name": "C++", "category": "Languages" },
+  { "name": "STL", "category": "Languages" },
+  { "name": "Python", "category": "Languages" },
+  { "name": "NumPy", "category": "Languages" },
+  { "name": "Pandas", "category": "Languages" },
+  { "name": "Linux Administration", "category": "Systems & Hardware" },
+  { "name": "Arduino", "category": "Systems & Hardware" },
+  { "name": "Embedded Systems", "category": "Systems & Hardware" },
+  { "name": "Robotics", "category": "Systems & Hardware" },
+  { "name": "Full-Stack Development", "category": "Web & Infrastructure" },
+  { "name": "Neon Database", "category": "Web & Infrastructure" },
+  { "name": "SEO Optimization", "category": "Web & Infrastructure" },
+  { "name": "Linear Algebra", "category": "Mathematics" },
+  { "name": "Commutative Algebra", "category": "Mathematics" },
+  { "name": "Algorithm Design", "category": "Mathematics" },
+  { "name": "Proofs", "category": "Mathematics" }
+]
