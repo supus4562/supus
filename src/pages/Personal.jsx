@@ -6,20 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import tasksData from '../content/data/tasks.json';
 import BrutalBox from '../components/BrutalBox';
 import SectionHeading from '../components/SectionHeading';/* ─── NEOBRUTALIST TOKENS ─── */
-const T = {
-  bg: '#CCFF00',          // Acid yellow background
-  bgSecondary: '#f4f4f0', // Stark white
-  black: '#000000',
-  accent1: '#FF3366',     // Neon pink
-  accent2: '#0033FF',     // Hyper blue
-  border: '4px solid #000',
-  borderThin: '2px solid #000',
-  fontDisplay: "'Syne', sans-serif",
-  fontBody: "'Space Grotesk', sans-serif",
-  shadow: '6px 6px 0px #000',
-  shadowHover: '12px 12px 0px #000',
-  shadowActive: '0px 0px 0px #000',
-};
+import { personalTheme as T } from '../theme';
 
 /* ─── ANIMATIONS ─── */
 const punchIn = (delay = 0) => ({

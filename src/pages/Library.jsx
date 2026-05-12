@@ -2,19 +2,7 @@ import { motion } from 'framer-motion';
 import ProNav from '../components/ProNav';
 import libraryData from '../content/data/library.json';
 
-const T = {
-  bg: '#000000',
-  bgSecondary: '#f4f4f0',
-  black: '#000000',
-  accent: '#00FF66',
-  borderWhite: '4px solid #fff',
-  borderBlack: '4px solid #000',
-  fontDisplay: "'Syne', sans-serif",
-  fontBody: "'Space Grotesk', sans-serif",
-  shadowWhite: '6px 6px 0px #fff',
-  shadowAccent: '6px 6px 0px #00FF66',
-  shadowHover: '12px 12px 0px #00FF66',
-};
+import { proTheme as T } from '../theme';
 
 const punchIn = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -82,20 +70,20 @@ export default function Library() {
         {/* SEMESTER COURSES */}
         <section>
           <div style={{ marginBottom: '4rem', borderBottom: T.borderWhite, paddingBottom: '1rem' }}>
-            <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '4rem', textTransform: 'uppercase', margin: 0, lineHeight: 0.9 }}>
+            <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(2.5rem, 8vw, 4rem)', wordBreak: 'break-word', lineHeight: 1.1, textTransform: 'uppercase', margin: 0, lineHeight: 0.9 }}>
               UNIVERSITY COURSEWORK
             </h2>
           </div>
           
           {semesters.length === 0 ? (
             <ProBox bg={T.bg} style={{ padding: '4rem', textAlign: 'center', border: `4px dashed #fff` }}>
-              <h3 style={{ fontFamily: T.fontDisplay, fontSize: '2.5rem', textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff' }}>NO COURSES LOGGED.</h3>
+              <h3 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', wordBreak: 'break-word', lineHeight: 1.1, textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff' }}>NO COURSES LOGGED.</h3>
             </ProBox>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
               {semesters.map((sem, i) => (
                 <div key={sem}>
-                  <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '2.5rem', color: T.accent, margin: '0 0 2rem', textTransform: 'uppercase' }}>
+                  <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', wordBreak: 'break-word', lineHeight: 1.1, color: T.accent, margin: '0 0 2rem', textTransform: 'uppercase' }}>
                     {sem}
                   </h3>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
@@ -121,14 +109,14 @@ export default function Library() {
         {/* TECHNICAL BOOKS */}
         <section>
           <div style={{ marginBottom: '4rem', borderBottom: T.borderWhite, paddingBottom: '1rem' }}>
-            <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '4rem', textTransform: 'uppercase', margin: 0, lineHeight: 0.9 }}>
+            <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(2.5rem, 8vw, 4rem)', wordBreak: 'break-word', lineHeight: 1.1, textTransform: 'uppercase', margin: 0, lineHeight: 0.9 }}>
               TECHNICAL BOOKS & TEXTS
             </h2>
           </div>
           
           {books.length === 0 ? (
             <ProBox bg={T.bg} style={{ padding: '4rem', textAlign: 'center', border: `4px dashed #fff` }}>
-              <h3 style={{ fontFamily: T.fontDisplay, fontSize: '2.5rem', textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff' }}>NO BOOKS LOGGED.</h3>
+              <h3 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', wordBreak: 'break-word', lineHeight: 1.1, textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff' }}>NO BOOKS LOGGED.</h3>
             </ProBox>
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>

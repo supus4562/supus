@@ -24,16 +24,7 @@ function parseFrontmatter(rawContent) {
 }
 
 /* ─── NEOBRUTALIST TOKENS ─── */
-const T = {
-  bg: '#CCFF00',
-  bgSecondary: '#f4f4f0',
-  black: '#000000',
-  accent1: '#FF3366',
-  border: '4px solid #000',
-  fontDisplay: "'Syne', sans-serif",
-  fontBody: "'Space Grotesk', sans-serif",
-  shadow: '6px 6px 0px #000',
-};
+import { personalTheme as T } from '../theme';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -43,7 +34,7 @@ export default function BlogPost() {
   if (!fileKey) {
     return (
       <div style={{ background: T.bg, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <h1 style={{ fontFamily: T.fontDisplay, fontSize: '4rem', color: T.black }}>404 - POST NOT FOUND</h1>
+        <h1 style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2.5rem, 8vw, 4rem)', wordBreak: 'break-word', lineHeight: 1.1, color: T.black }}>404 - POST NOT FOUND</h1>
       </div>
     );
   }
@@ -63,7 +54,7 @@ export default function BlogPost() {
           style={{
             borderRight: T.border, padding: '0 2rem', display: 'flex', alignItems: 'center',
             background: T.black, color: T.accent1, cursor: 'pointer',
-            fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '2rem', textTransform: 'uppercase'
+            fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.5rem, 5vw, 2rem)', wordBreak: 'break-word', lineHeight: 1.1, textTransform: 'uppercase'
           }}
         >
           ← ALL THOUGHTS

@@ -2,18 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 /* ─── NEOBRUTALIST TOKENS ─── */
-const T = {
-  bg: '#CCFF00',
-  bgSecondary: '#f4f4f0',
-  black: '#000000',
-  accent1: '#FF3366',
-  accent2: '#0033FF',
-  border: '4px solid #000',
-  fontDisplay: "'Syne', sans-serif",
-  fontBody: "'Space Grotesk', sans-serif",
-  shadow: '6px 6px 0px #000',
-  shadowHover: '12px 12px 0px #000',
-};
+import { personalTheme as T } from '../theme';
 
 const BrutalBox = ({ children, bg = T.bgSecondary, style, delay = 0, onClick }) => (
   <motion.div
@@ -82,7 +71,7 @@ export default function ThoughtsPage() {
           style={{
             borderRight: T.border, padding: '0 2rem', display: 'flex', alignItems: 'center',
             background: T.black, color: T.bg, cursor: 'pointer',
-            fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '2rem', textTransform: 'uppercase'
+            fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.5rem, 5vw, 2rem)', wordBreak: 'break-word', lineHeight: 1.1, textTransform: 'uppercase'
           }}
         >
           ← BACK
@@ -107,7 +96,7 @@ export default function ThoughtsPage() {
 
       <div style={{ padding: '6rem 4rem', maxWidth: '1200px', margin: '0 auto' }}>
         {blogs.length === 0 ? (
-          <div style={{ fontFamily: T.fontDisplay, fontSize: '3rem', textAlign: 'center', border: T.border, padding: '4rem', background: '#fff' }}>
+          <div style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem, 8vw, 3rem)', wordBreak: 'break-word', lineHeight: 1.1, textAlign: 'center', border: T.border, padding: '4rem', background: '#fff' }}>
             NO POSTS YET. DROP .MD FILES IN /src/content/blogs
           </div>
         ) : (
@@ -115,7 +104,7 @@ export default function ThoughtsPage() {
             {blogs.map((blog, i) => (
               <BrutalBox key={blog.id} delay={0.1 + i * 0.1} bg={i % 2 === 0 ? '#fff' : T.accent1} onClick={() => navigate(`/personal/thoughts/${blog.id}`)} style={{ padding: '3rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: T.border, paddingBottom: '1rem', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
-                  <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '4rem', margin: 0, textTransform: 'uppercase', color: i % 2 !== 0 ? '#fff' : '#000', WebkitTextStroke: i % 2 !== 0 ? '2px black' : 'none' }}>
+                  <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(2.5rem, 8vw, 4rem)', wordBreak: 'break-word', lineHeight: 1.1, margin: 0, textTransform: 'uppercase', color: i % 2 !== 0 ? '#fff' : '#000', WebkitTextStroke: i % 2 !== 0 ? '2px black' : 'none' }}>
                     {blog.title}
                   </h2>
                   {blog.date && (

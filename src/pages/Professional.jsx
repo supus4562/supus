@@ -7,19 +7,7 @@ import researchData from '../content/data/research.json';
 import techSpecsData from '../content/data/techSpecs.json';
 import BrutalBox from '../components/BrutalBox';
 import SectionHeading from '../components/SectionHeading';/* ─── PROFESSIONAL NEOBRUTALIST TOKENS ─── */
-const T = {
-  bg: '#000000',          // Deep black background
-  bgSecondary: '#f4f4f0', // Stark white
-  black: '#000000',
-  accent: '#00FF66',      // Acid Green for a professional but tech/brutalist edge
-  borderWhite: '4px solid #fff',
-  borderBlack: '4px solid #000',
-  fontDisplay: "'Syne', sans-serif",
-  fontBody: "'Space Grotesk', sans-serif",
-  shadowWhite: '6px 6px 0px #fff',
-  shadowAccent: '6px 6px 0px #00FF66',
-  shadowHover: '12px 12px 0px #00FF66',
-};
+import { proTheme as T } from '../theme';
 
 /* ─── ANIMATIONS ─── */
 const punchIn = (delay = 0) => ({
@@ -33,7 +21,7 @@ export default function Professional() {
   const navigate = useNavigate();
 
   /* ─── COMPONENTS ─── */
-  const ProBox = ({ children, bg = T.bgSecondary, style, delay = 0, hoverColor, onClick }) => {
+  const ProBox = ({ children, bg = T.bgSecondary, style, delay = 0, hoverColor, hoverTextColor, onClick }) => {
     const isLight = bg === T.bgSecondary || bg === T.accent;
     return (
       <BrutalBox 
@@ -42,7 +30,7 @@ export default function Professional() {
         border={isLight ? T.borderBlack : T.borderWhite}
         shadow={isLight ? T.shadowAccent : T.shadowWhite}
         shadowHover={T.shadowHover}
-        style={style} delay={delay} hoverColor={hoverColor} onClick={onClick}
+        style={style} delay={delay} hoverColor={hoverColor} hoverTextColor={hoverTextColor} onClick={onClick}
       >
         {children}
       </BrutalBox>
@@ -282,19 +270,19 @@ export default function Professional() {
           <ProSectionHeading title="Network" dark={true} />
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '6rem' }}>
             <a href="https://linkedin.com/in/supus" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-              <ProBox bg={T.black} hoverColor="#fff" delay={0.1} style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <ProBox bg={T.black} hoverColor="#fff" hoverTextColor="#000" delay={0.1} style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '1.8rem', textTransform: 'uppercase' }}>LinkedIn</span>
                 <span style={{ fontSize: '2rem' }}>↗</span>
               </ProBox>
             </a>
             <a href="https://github.com/supus4562" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-              <ProBox bg={T.bgSecondary} hoverColor="#fff" delay={0.2} style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <ProBox bg={T.bgSecondary} hoverColor="#fff" hoverTextColor="#000" delay={0.2} style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '1.8rem', textTransform: 'uppercase' }}>GitHub</span>
                 <span style={{ fontSize: '2rem' }}>↗</span>
               </ProBox>
             </a>
             <a href="mailto:hamza3140000@gmail.com" style={{ textDecoration: 'none' }}>
-              <ProBox bg={T.black} hoverColor="#fff" delay={0.3} style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <ProBox bg={T.black} hoverColor="#fff" hoverTextColor="#000" delay={0.3} style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '1.8rem', textTransform: 'uppercase' }}>Email</span>
                 <span style={{ fontSize: '2rem' }}>↗</span>
               </ProBox>

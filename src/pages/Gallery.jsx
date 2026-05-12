@@ -2,18 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 /* ─── NEOBRUTALIST TOKENS ─── */
-const T = {
-  bg: '#CCFF00',
-  bgSecondary: '#f4f4f0',
-  black: '#000000',
-  accent1: '#FF3366',
-  accent2: '#0033FF',
-  border: '4px solid #000',
-  fontDisplay: "'Syne', sans-serif",
-  fontBody: "'Space Grotesk', sans-serif",
-  shadow: '6px 6px 0px #000',
-  shadowHover: '12px 12px 0px #000',
-};
+import { personalTheme as T } from '../theme';
 
 const BrutalBox = ({ children, bg = T.bgSecondary, style, delay = 0 }) => (
   <motion.div
@@ -55,7 +44,7 @@ export default function GalleryPage() {
           style={{
             borderRight: T.border, padding: '0 2rem', display: 'flex', alignItems: 'center',
             background: T.accent2, color: '#fff', cursor: 'pointer',
-            fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '2rem', textTransform: 'uppercase'
+            fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.5rem, 5vw, 2rem)', wordBreak: 'break-word', lineHeight: 1.1, textTransform: 'uppercase'
           }}
         >
           ← BACK
@@ -80,7 +69,7 @@ export default function GalleryPage() {
 
       <div style={{ padding: '6rem 4rem' }}>
         {images.length === 0 ? (
-          <div style={{ fontFamily: T.fontDisplay, fontSize: '3rem', textAlign: 'center', border: T.border, padding: '4rem', background: '#fff' }}>
+          <div style={{ fontFamily: T.fontDisplay, fontSize: 'clamp(2rem, 8vw, 3rem)', wordBreak: 'break-word', lineHeight: 1.1, textAlign: 'center', border: T.border, padding: '4rem', background: '#fff' }}>
             NO IMAGES YET. DROP PICTURES IN /src/content/gallery
           </div>
         ) : (
