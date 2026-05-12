@@ -96,7 +96,7 @@ export default function ProNav() {
           className="mobile-menu-btn" 
           onClick={() => setIsOpen(!isOpen)}
           style={{
-            padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '0 1.5rem', alignItems: 'center', justifyContent: 'center',
             color: '#fff', cursor: 'pointer', height: '100%', borderLeft: T.borderWhite
           }}
         >

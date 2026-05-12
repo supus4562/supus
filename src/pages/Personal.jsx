@@ -93,7 +93,7 @@ function Nav() {
           className="mobile-menu-btn" 
           onClick={() => setIsOpen(!isOpen)}
           style={{
-            padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '0 1.5rem', alignItems: 'center', justifyContent: 'center',
             color: T.black, cursor: 'pointer', height: '100%', borderLeft: T.border
           }}
         >
@@ -130,7 +130,7 @@ function Hero() {
           style={{
             fontFamily: T.fontDisplay, fontWeight: 800,
             fontSize: 'clamp(2.5rem, 10vw, 12rem)',
-            lineHeight: 1, textTransform: 'uppercase',
+            lineHeight: 1.1, textTransform: 'uppercase',
             letterSpacing: '0em', margin: 0,
             textShadow: T.shadow
           }}
@@ -142,7 +142,7 @@ function Hero() {
           style={{
             fontFamily: T.fontDisplay, fontWeight: 800,
             fontSize: 'clamp(2rem, 8vw, 8rem)',
-            lineHeight: 1, textTransform: 'uppercase',
+            lineHeight: 1.1, textTransform: 'uppercase',
             letterSpacing: '0em', margin: '0.2em 0 0', color: T.accent2,
             WebkitTextStroke: '3px black'
           }}
@@ -229,7 +229,7 @@ function Hobbies() {
   const hobbiesList = ['Film Photography', 'Long Distance Running', 'Synthesizers', 'Mechanical Keyboards', 'Philosophy', 'Espresso'];
   return (
     <section id="hobbies" style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(3rem, 10vw, 6rem) clamp(1rem, 5vw, 4rem)', background: T.accent2, borderBottom: T.border }}>
-      <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '5rem', color: '#fff', textTransform: 'uppercase', margin: '0 0 3rem', WebkitTextStroke: '2px black' }}>
+      <h2 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(3rem, 8vw, 5rem)', color: '#fff', textTransform: 'uppercase', margin: '0 0 3rem', WebkitTextStroke: '2px black', wordBreak: 'break-word', lineHeight: 1.1 }}>
         Off Screen
       </h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
@@ -250,7 +250,9 @@ function Thoughts() {
       <SectionHeading title="Brain Dumps" subtitle="Thoughts" color={T.black} borderBottom={T.border} />
       
       <BrutalBox bg="#fff" style={{ padding: 'clamp(2rem, 5vw, 4rem)', textAlign: 'center', border: `4px dashed ${T.black}` }}>
-        <h3 style={{ fontFamily: T.fontDisplay, fontSize: '3rem', textTransform: 'uppercase', margin: '0 0 2rem' }}>First thought incoming...</h3>
+        <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(2rem, 6vw, 4rem)', margin: '0 0 2rem', textTransform: 'uppercase', wordBreak: 'break-word', lineHeight: 1.1 }}>
+          First thought incoming.
+        </h3>
         <Link to="/personal/thoughts" style={{
           display: 'inline-block', fontFamily: T.fontBody, fontWeight: 700, fontSize: '1.5rem',
           color: T.bgSecondary, background: T.black, padding: '1rem 3rem', textDecoration: 'none',
