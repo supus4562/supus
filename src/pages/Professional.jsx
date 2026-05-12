@@ -73,7 +73,7 @@ export default function Professional() {
             style={{ height: '8px', background: T.accent, border: T.borderBlack, marginBottom: '2rem' }}
           />
           
-          <h3 style={{ fontFamily: T.fontBody, fontWeight: 700, fontSize: 'clamp(1rem, 3vw, 1.5rem)', color: T.black, margin: '0 0 1rem', textTransform: 'uppercase' }}>
+          <h3 style={{ fontFamily: T.fontBody, fontWeight: 700, fontSize: 'clamp(0.8rem, 2vw, 1.2rem)', color: T.black, margin: '0 0 1rem', textTransform: 'uppercase' }}>
             Computer Scientist / Theoretical CS @ LUMS
           </h3>
 
@@ -81,9 +81,9 @@ export default function Professional() {
             initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', damping: 15, delay: 0.1 }}
             style={{
               fontFamily: T.fontDisplay, fontWeight: 800,
-              fontSize: 'clamp(2rem, 10vw, 12rem)',
-              lineHeight: 1, textTransform: 'uppercase',
-              letterSpacing: '0em', margin: 0, color: T.black,
+              fontSize: 'clamp(2.5rem, 8vw, 8rem)',
+              lineHeight: 1.1, textTransform: 'uppercase',
+              letterSpacing: '-0.02em', margin: 0, color: T.black,
               textShadow: T.shadowAccent
             }}
           >
@@ -93,9 +93,9 @@ export default function Professional() {
             initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', damping: 15, delay: 0.2 }}
             style={{
               fontFamily: T.fontDisplay, fontWeight: 800,
-              fontSize: 'clamp(2rem, 10vw, 12rem)',
-              lineHeight: 1, textTransform: 'uppercase',
-              letterSpacing: '0em', margin: '0.3em 0 0', color: T.bgSecondary,
+              fontSize: 'clamp(2.5rem, 8vw, 8rem)',
+              lineHeight: 1.1, textTransform: 'uppercase',
+              letterSpacing: '-0.02em', margin: '0.2em 0 0', color: T.bgSecondary,
               WebkitTextStroke: '4px black'
             }}
           >
@@ -132,7 +132,7 @@ export default function Professional() {
               {experiences.map((exp, i) => (
                 <ProBox key={i} delay={0.1 + i*0.1} bg={T.bgSecondary} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
-                    <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '2rem', textTransform: 'uppercase', margin: 0 }}>{exp.role}</h3>
+                    <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', textTransform: 'uppercase', margin: 0, wordBreak: 'break-word', lineHeight: 1.1 }}>{exp.role}</h3>
                     <span style={{ fontFamily: T.fontBody, fontWeight: 700, background: T.black, color: T.accent, padding: '0.3rem 0.8rem', fontSize: '1rem', whiteSpace: 'nowrap' }}>{exp.time}</span>
                   </div>
                   <h4 style={{ fontFamily: T.fontBody, fontWeight: 700, fontSize: '1.2rem', color: '#555', margin: 0 }}>@ {exp.company}</h4>
@@ -145,8 +145,8 @@ export default function Professional() {
           <div>
             <ProSectionHeading title="Education" dark={false} />
             <ProBox delay={0.3} bg={T.accent} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '2.5rem', textTransform: 'uppercase', margin: 0, WebkitTextStroke: '1px black', color: '#fff' }}>LUMS</h3>
-              <h4 style={{ fontFamily: T.fontBody, fontWeight: 700, fontSize: '1.4rem', margin: 0, color: '#000' }}>BS Theoretical Computer Science</h4>
+              <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 3rem)', textTransform: 'uppercase', margin: 0, WebkitTextStroke: '1px black', color: '#fff', wordBreak: 'break-word', lineHeight: 1.1 }}>LUMS</h3>
+              <h4 style={{ fontFamily: T.fontBody, fontWeight: 700, fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', margin: 0, color: '#000', wordBreak: 'break-word' }}>BS Theoretical Computer Science</h4>
               <span style={{ fontFamily: T.fontBody, fontWeight: 700, background: T.black, color: '#fff', padding: '0.3rem 0.8rem', fontSize: '1rem', alignSelf: 'flex-start' }}>Expected May 2029</span>
               <p style={{ fontFamily: T.fontBody, fontWeight: 600, fontSize: '1.1rem', margin: '1rem 0 0', color: '#000' }}>
                 Advanced coursework in Proof-based Mathematics, Linear Algebra (Honours), and Data Structures.
@@ -214,7 +214,7 @@ export default function Professional() {
             <ProSectionHeading title="Projects" dark={false} />
             {limitedProjects.length === 0 ? (
               <ProBox bg={T.bg} style={{ padding: 'clamp(2rem, 5vw, 4rem)', textAlign: 'center', border: `4px dashed #fff` }}>
-                <h3 style={{ fontFamily: T.fontDisplay, fontSize: '2.5rem', textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff' }}>
+                <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff', wordBreak: 'break-word', lineHeight: 1.1 }}>
                   NO FEATURED REPOS YET.
                 </h3>
                 <p style={{ fontFamily: T.fontBody, fontWeight: 600, fontSize: '1.2rem', color: '#aaa', margin: 0 }}>
@@ -226,7 +226,7 @@ export default function Professional() {
                 {limitedProjects.map((proj, i) => (
                   <ProBox key={i} delay={0.1*i} bg={T.bgSecondary} onClick={() => proj.link ? window.open(proj.link, '_blank') : null}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', borderBottom: T.borderBlack, paddingBottom: '1rem', marginBottom: '1rem' }}>
-                      <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: '2rem', textTransform: 'uppercase', margin: 0, wordBreak: 'break-word' }}>{proj.title}</h3>
+                      <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.5rem, 5vw, 2rem)', textTransform: 'uppercase', margin: 0, wordBreak: 'break-word', lineHeight: 1.1 }}>{proj.title}</h3>
                       {proj.date && <span style={{ fontFamily: T.fontBody, fontWeight: 700, background: T.black, color: '#fff', padding: '0.3rem 0.8rem', fontSize: '1rem' }}>{proj.date}</span>}
                     </div>
                     <p style={{ fontFamily: T.fontBody, fontWeight: 600, fontSize: '1.1rem', margin: 0 }}>{proj.description}</p>
@@ -245,7 +245,7 @@ export default function Professional() {
             <ProSectionHeading title="Research" dark={false} />
             {limitedResearch.length === 0 ? (
               <ProBox bg={T.bg} style={{ padding: 'clamp(2rem, 5vw, 4rem)', textAlign: 'center', border: `4px dashed #fff` }}>
-                <h3 style={{ fontFamily: T.fontDisplay, fontSize: '2.5rem', textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff' }}>
+                <h3 style={{ fontFamily: T.fontDisplay, fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', textTransform: 'uppercase', margin: '0 0 1rem', color: '#fff', wordBreak: 'break-word', lineHeight: 1.1 }}>
                   NO PUBLISHED PAPERS.
                 </h3>
                 <p style={{ fontFamily: T.fontBody, fontWeight: 600, fontSize: '1.2rem', color: '#aaa', margin: 0 }}>
